@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var jump_velocity := -400
 var jumps_left := 2
 
+func die() -> void:
+	pass
+
 func _physics_process(delta: float) -> void:
 	var input_dir := 0
 	if not Input.is_action_pressed("sneak") and not Input.is_action_pressed("sleep"):
