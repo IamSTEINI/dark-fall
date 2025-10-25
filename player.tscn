@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://budkbgl33l736"]
+[gd_scene load_steps=59 format=3 uid="uid://budkbgl33l736"]
 
 [ext_resource type="Texture2D" uid="uid://cd0imj5a2rmkn" path="res://images/Fox Sprite Sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bh2acvunxefcj" path="res://player.gd" id="1_onrkg"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cmot8sjc14i4y" path="res://wind-ambience-14720.mp3" id="4_hqtel"]
 [ext_resource type="AudioStream" uid="uid://ch0p3s4e4c1vj" path="res://walking-on-leaves-30325.mp3" id="5_sweqy"]
 [ext_resource type="Shader" uid="uid://dhmfod3kbos3l" path="res://Vignette.gdshader" id="6_2hs0m"]
+[ext_resource type="AudioStream" uid="uid://bp2hd5naby3r2" path="res://defeat.mp3" id="7_1jxqw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_glv2v"]
 atlas = ExtResource("1_4flbx")
@@ -437,7 +438,7 @@ parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="text" type="RichTextLabel" parent="CanvasLayer"]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -453,8 +454,12 @@ grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 30
 theme_override_font_sizes/normal_font_size = 51
-text = "WAVE n"
+text = "WAVE 1"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Defeat" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_1jxqw")
+attenuation = 1e-05
