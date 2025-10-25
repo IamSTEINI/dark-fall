@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://btwwybmkvwyng"]
+[gd_scene load_steps=15 format=3 uid="uid://btwwybmkvwyng"]
 
 [ext_resource type="PackedScene" uid="uid://budkbgl33l736" path="res://player.tscn" id="1_glv2v"]
 [ext_resource type="Texture2D" uid="uid://p8nhqtor35p8" path="res://assets/leaves.png" id="2_r0du0"]
 [ext_resource type="PackedScene" uid="uid://d3s7o0ya8pv42" path="res://ground.tscn" id="3_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://b8r3e8a4y6wga" path="res://assets/forest_long.png" id="4_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://c8f4em1o56b42" path="res://assets/background.png" id="5_fos0i"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uu6xs"]
 particles_animation = true
@@ -36,15 +37,60 @@ scale_max = 0.59999996
 color_ramp = SubResource("GradientTexture1D_r0du0")
 anim_offset_max = 1.0
 
+[sub_resource type="Gradient" id="Gradient_fos0i"]
+offsets = PackedFloat32Array(0, 0.33179724, 0.7096774, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3dxm6"]
+gradient = SubResource("Gradient_fos0i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fos0i"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(192.14, 102.945, 1)
+angle_min = -14.9999895
+angle_max = 15.0000105
+spread = 20.0
+flatness = 1.0
+initial_velocity_min = -68.96
+initial_velocity_max = 60.0
+angular_velocity_min = -20.000015
+angular_velocity_max = 213.60999
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 10, 0)
+linear_accel_min = -10.170002
+linear_accel_max = 8.399998
+scale_min = 0.19999999
+scale_max = 0.79999995
+scale_over_velocity_max = 2.0
+color_ramp = SubResource("GradientTexture1D_3dxm6")
+anim_speed_min = -16.369999
+anim_speed_max = 1.66
+turbulence_noise_speed = Vector3(0.33, 0.72, 1.095)
+turbulence_noise_speed_random = 1.66
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
+size = Vector2(245.25, 132.5)
+
+[sub_resource type="Environment" id="Environment_fos0i"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.1
+glow_hdr_threshold = 4.0
+
 [node name="Node2D" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.6577071, 0.5285183, 0.5294629, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_glv2v")]
+z_index = 1
 position = Vector2(0, 986)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Player"]
+[node name="LEAVES" type="GPUParticles2D" parent="Player"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_uu6xs")
 position = Vector2(-2, -74)
@@ -55,6 +101,13 @@ visibility_rect = Rect2(-200, -100, 400, 200)
 trail_lifetime = 0.01
 process_material = SubResource("ParticleProcessMaterial_uu6xs")
 
+[node name="GLOWOWRM" type="GPUParticles2D" parent="Player"]
+modulate = Color(0.8040024, 0.6735427, 0.40080085, 1)
+self_modulate = Color(3.218595, 2.7649975, 1.8781837, 1)
+position = Vector2(0, -74)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_fos0i")
+
 [node name="Ground" parent="." instance=ExtResource("3_cm0pq")]
 position = Vector2(2, 983)
 
@@ -62,10 +115,10 @@ position = Vector2(2, 983)
 position = Vector2(1602, 983)
 
 [node name="Ground3" parent="." instance=ExtResource("3_cm0pq")]
-position = Vector2(-3200, 983)
+position = Vector2(-3198, 983)
 
 [node name="Ground4" parent="." instance=ExtResource("3_cm0pq")]
-position = Vector2(-1600, 983)
+position = Vector2(-1598, 983)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -78,3 +131,33 @@ modulate = Color(0.12955844, 0.12955847, 0.12955844, 1)
 texture_filter = 1
 position = Vector2(0, 400)
 texture = ExtResource("4_cm0pq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2372, 943)
+texture = ExtResource("5_fos0i")
+region_enabled = true
+region_rect = Rect2(307, 0, 93, 110)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(-26.25, -15)
+shape = SubResource("RectangleShape2D_fos0i")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3953, 943)
+texture = ExtResource("5_fos0i")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(307, 0, 93, 110)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/StaticBody2D"]
+position = Vector2(47.375, -15)
+shape = SubResource("RectangleShape2D_fos0i")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fos0i")
