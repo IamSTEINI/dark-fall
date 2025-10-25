@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://cpqrnewyiut7q"]
+[gd_scene load_steps=38 format=3 uid="uid://cpqrnewyiut7q"]
 
 [ext_resource type="Script" uid="uid://dg4duttm3qj4r" path="res://zombie.gd" id="1_roy8y"]
 [ext_resource type="Texture2D" uid="uid://cdcd413ebnjj6" path="res://images/Zombie.png" id="2_jmu02"]
+[ext_resource type="AudioStream" uid="uid://b1wk37rn75pw2" path="res://kill.mp3" id="3_jmu02"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4qnp"]
 atlas = ExtResource("2_jmu02")
@@ -249,10 +250,8 @@ size = Vector2(27, 49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgr22"]
 size = Vector2(27, 11.5)
 
-[node name="Zombie" type="CharacterBody2D" node_paths=PackedStringArray("player")]
+[node name="Zombie" type="CharacterBody2D"]
 script = ExtResource("1_roy8y")
-attack_range = 60
-player = NodePath("")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -272,3 +271,9 @@ position = Vector2(2, -19)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadArea"]
 position = Vector2(-0.5, 0.25)
 shape = SubResource("RectangleShape2D_lgr22")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jmu02")
+volume_db = 7.61
+pitch_scale = 0.91
+attenuation = 1e-05

@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y += 1000 * delta
 		move_and_slide()
 		await get_tree().create_timer(3).timeout
+		$AudioStreamPlayer2D.stop()
 		self.queue_free()
 		return
 	
@@ -49,7 +50,6 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 	
 	velocity.y = 0
-
 	if velocity.x != 0:
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	else:
@@ -83,4 +83,5 @@ func _on_head_hit(body: Node) -> void:
 		return
 	if body == player and player.velocity.y > 0:
 		dead = true
+		$AudioStreamPlayer2D.play()
 		$AnimatedSprite2D.play("die")

@@ -173,19 +173,19 @@ position = Vector2(-142, 954)
 player = NodePath("../../Player")
 
 [node name="Spawn" type="Marker2D" parent="."]
-position = Vector2(-3597, 958)
+position = Vector2(-3594, 955)
 
 [node name="Spawn2" type="Marker2D" parent="."]
-position = Vector2(-3426, 958)
+position = Vector2(-3423, 955)
 
 [node name="Spawn5" type="Marker2D" parent="."]
-position = Vector2(-2649, 958)
+position = Vector2(-2646, 955)
 
 [node name="Spawn6" type="Marker2D" parent="."]
-position = Vector2(1453, 958)
+position = Vector2(1458, 955)
 
 [node name="Spawn3" type="Marker2D" parent="."]
-position = Vector2(1880, 968)
+position = Vector2(1884, 955)
 
 [node name="Spawn4" type="Marker2D" parent="."]
-position = Vector2(2051, 968)
+position = Vector2(2054, 955)
