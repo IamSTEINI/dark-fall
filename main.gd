@@ -20,6 +20,7 @@ func _check_wave() -> void:
 
 func new_wave():
 	wave += 1
+	$Player.wave = wave
 	for i in range(wave):
 		var zombie = zombie_s.instantiate()
 		if spawn_points.size() > 0:

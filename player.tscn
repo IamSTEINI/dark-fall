@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://budkbgl33l736"]
+[gd_scene load_steps=60 format=3 uid="uid://budkbgl33l736"]
 
 [ext_resource type="Texture2D" uid="uid://cd0imj5a2rmkn" path="res://images/Fox Sprite Sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bh2acvunxefcj" path="res://player.gd" id="1_onrkg"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://ch0p3s4e4c1vj" path="res://walking-on-leaves-30325.mp3" id="5_sweqy"]
 [ext_resource type="Shader" uid="uid://dhmfod3kbos3l" path="res://Vignette.gdshader" id="6_2hs0m"]
 [ext_resource type="AudioStream" uid="uid://bp2hd5naby3r2" path="res://defeat.mp3" id="7_1jxqw"]
+[ext_resource type="Theme" uid="uid://cautwq260j4v1" path="res://FONT.tres" id="7_dw050"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_glv2v"]
 atlas = ExtResource("1_4flbx")
@@ -451,6 +452,7 @@ offset_right = 200.0
 offset_bottom = -351.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_dw050")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 30
 theme_override_font_sizes/normal_font_size = 51
@@ -473,8 +475,9 @@ offset_right = 200.0
 offset_bottom = -304.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_dw050")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 30
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/normal_font_size = 25
 text = "(0/0 left)"
 scroll_active = false

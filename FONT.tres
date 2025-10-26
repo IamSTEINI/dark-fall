@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cautwq260j4v1"]
+
+[ext_resource type="FontFile" uid="uid://mip6ntnylk1h" path="res://BoldPixels.ttf" id="1_ba4ol"]
+
+[resource]
+default_font = ExtResource("1_ba4ol")

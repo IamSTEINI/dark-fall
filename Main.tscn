@@ -18,7 +18,7 @@ particles_anim_loop = false
 offsets = PackedFloat32Array(0, 0.18706697, 0.5391705, 0.817552, 0.99769056, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 0.83033526, 0.83033514, 0.83033514, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_r0du0"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lgr22"]
 gradient = SubResource("Gradient_uu6xs")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uu6xs"]
@@ -36,14 +36,14 @@ angular_velocity_max = 49.99998
 gravity = Vector3(0, 10, 0)
 scale_min = 0.099999994
 scale_max = 0.59999996
-color_ramp = SubResource("GradientTexture1D_r0du0")
+color_ramp = SubResource("GradientTexture1D_lgr22")
 anim_offset_max = 1.0
 
 [sub_resource type="Gradient" id="Gradient_fos0i"]
 offsets = PackedFloat32Array(0, 0.33179724, 0.7096774, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3dxm6"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_trn2v"]
 gradient = SubResource("Gradient_fos0i")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fos0i"]
@@ -68,7 +68,7 @@ linear_accel_max = 8.399998
 scale_min = 0.19999999
 scale_max = 0.79999995
 scale_over_velocity_max = 2.0
-color_ramp = SubResource("GradientTexture1D_3dxm6")
+color_ramp = SubResource("GradientTexture1D_trn2v")
 turbulence_noise_speed = Vector3(0.33, 0.72, 1.095)
 turbulence_noise_speed_random = 1.66
 
