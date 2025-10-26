@@ -1,10 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://dtfmvn0h0prtf"]
+[gd_scene load_steps=41 format=3 uid="uid://dtfmvn0h0prtf"]
 
 [ext_resource type="Script" uid="uid://dg4duttm3qj4r" path="res://zombie.gd" id="1_a42jg"]
 [ext_resource type="Texture2D" uid="uid://cdcd413ebnjj6" path="res://images/Zombie.png" id="2_cjak8"]
 [ext_resource type="AudioStream" uid="uid://b1wk37rn75pw2" path="res://kill.mp3" id="3_ajt8s"]
 [ext_resource type="AudioStream" uid="uid://cx8hsbmr3pf8l" path="res://woosh.mp3" id="4_1450l"]
 [ext_resource type="AudioStream" uid="uid://dhsal25ssgguc" path="res://zombie_run.mp3" id="5_u4jcw"]
+[ext_resource type="Theme" uid="uid://cautwq260j4v1" path="res://FONT.tres" id="6_cjak8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4qnp"]
 atlas = ExtResource("2_cjak8")
@@ -296,3 +297,19 @@ autoplay = true
 max_distance = 742.0
 attenuation = 0.33717766
 parameters/looping = true
+
+[node name="comictext" type="RichTextLabel" parent="."]
+self_modulate = Color(18.892157, 0, 0, 1)
+texture_filter = 1
+offset_left = 17.0
+offset_top = -12.0
+offset_right = 67.0
+offset_bottom = 13.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("6_cjak8")
+theme_override_colors/default_color = Color(0.961494, 0.00012696892, 0.3099783, 1)
+text = "OUCH!"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://budkbgl33l736"]
+[gd_scene load_steps=61 format=3 uid="uid://budkbgl33l736"]
 
 [ext_resource type="Texture2D" uid="uid://cd0imj5a2rmkn" path="res://images/Fox Sprite Sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bh2acvunxefcj" path="res://player.gd" id="1_onrkg"]
@@ -388,6 +388,9 @@ shader_parameter/alpha = 0.84
 shader_parameter/inner_radius = -0.015
 shader_parameter/outer_radius = 7.66
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dw050"]
+bg_color = Color(0, 0, 0, 0.53000003)
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_onrkg")
@@ -506,6 +509,35 @@ text = "0 Kills"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="zombier" type="RichTextLabel" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 1770.0
+offset_top = 571.0
+offset_right = 1920.0
+offset_bottom = 596.0
+theme = ExtResource("7_dw050")
+theme_override_font_sizes/normal_font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_dw050")
+text = "ZOMBIE >>>"
+scroll_active = false
+autowrap_mode = 0
+autowrap_trim_flags = 0
+vertical_alignment = 1
+
+[node name="zombiel" type="RichTextLabel" parent="CanvasLayer"]
+texture_filter = 1
+offset_top = 571.0
+offset_right = 150.0
+offset_bottom = 596.0
+theme = ExtResource("7_dw050")
+theme_override_font_sizes/normal_font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_dw050")
+text = "<<< ZOMBIE"
+scroll_active = false
+autowrap_mode = 0
+autowrap_trim_flags = 0
 vertical_alignment = 1
 
 [node name="Defeat" type="AudioStreamPlayer2D" parent="."]

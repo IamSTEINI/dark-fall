@@ -9,9 +9,11 @@ extends CharacterBody2D
 var is_animating_attack := false
 var can_attack := true
 var dead := false
+var texts = ["OUCH!", "HELL NAH!", "GOD!", "SMASH!", "AHHH!"]
 
 func _ready():
 	speed = wave* 2 + speed
+	$comictext.hide()
 	$HeadArea.body_entered.connect(_on_head_hit)
 
 func _physics_process(delta: float) -> void:
@@ -89,5 +91,13 @@ func _on_head_hit(body: Node) -> void:
 		dead = true
 		$Die.play()
 		$Run.queue_free()
-		player.kills =+ 1
+		player.kills += 1
 		$AnimatedSprite2D.play("die")
+		var t = $comictext.create_tween()
+		$comictext.text = texts.pick_random()
+		$comictext.show()
+		var start_pos = $comictext.position
+		t.tween_property($comictext, "position:y", start_pos.y - 30, 0.8)
+		t.parallel().tween_property($comictext, "modulate:a", 0.0, 0.8)
+		await t.finished
+		$comictext.queue_free()

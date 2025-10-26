@@ -171,7 +171,7 @@ environment = SubResource("Environment_fos0i")
 [node name="Zombies" type="Node" parent="."]
 
 [node name="Zombie" parent="Zombies" node_paths=PackedStringArray("player") instance=ExtResource("2_lgr22")]
-position = Vector2(-142, 954)
+position = Vector2(-857, 954)
 player = NodePath("../../Player")
 
 [node name="Spawn" type="Marker2D" parent="."]

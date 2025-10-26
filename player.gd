@@ -33,13 +33,14 @@ func _physics_process(delta: float) -> void:
 	if !dead:
 		$CanvasLayer/text.text = "Wave "+str(wave)
 	
-	$CanvasLayer/kills.text = str(kills)+" Kills"
+	$CanvasLayer/kills.text = (str(kills) + " KILL" + ("" if kills <= 1 else "S"))
 	
 	if Input.is_action_pressed("sneak"):
 		$AnimatedSprite2D.play("sneak")
 		$Foodsteps.stop()
 	elif Input.is_action_pressed("sleep"):
 		$AnimatedSprite2D.play("sleep")
+		Engine.time_scale = 2.5
 		$Foodsteps.stop()
 	elif velocity.y != 0:
 		$AnimatedSprite2D.play("jump")
@@ -51,6 +52,23 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.play("idle")
 		$Foodsteps.stop()
+		
+	var zombies = get_parent().get_node("Zombies").get_children()
+	for zombie in zombies:
+		if not zombie or not zombie.is_inside_tree():
+			continue
+		var direction = zombie.global_position.x - global_position.x
+		if direction < 0:
+			$CanvasLayer/zombiel.show()
+		else:
+			$CanvasLayer/zombiel.hide()
+		if direction > 0:
+			$CanvasLayer/zombier.show()
+		else:
+			$CanvasLayer/zombier.hide()
+	
+	if not Input.is_action_pressed("sleep"):
+		Engine.time_scale = 1
 
 	if velocity.x != 0:
 		$AnimatedSprite2D.flip_h = velocity.x < 0

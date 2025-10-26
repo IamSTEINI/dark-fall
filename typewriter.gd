@@ -27,3 +27,5 @@ func retype():
 		retype()
 	else:
 		$"../../Typewriter".stop()
+		$"../Play".show()
+		$"../AnimatedSprite2D".show()
