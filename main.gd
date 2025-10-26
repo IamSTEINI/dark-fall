@@ -30,4 +30,5 @@ func new_wave():
 			zombie.global_position = Vector2.ZERO
 		
 		zombie.player = $Player
+		zombie.wave = wave
 		$Zombies.add_child(zombie)

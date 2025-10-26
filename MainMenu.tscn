@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://c2pqhr4l6hajt"]
+[gd_scene load_steps=76 format=3 uid="uid://c2pqhr4l6hajt"]
 
 [ext_resource type="Script" uid="uid://lw8yhqom2dfm" path="res://main_menu.gd" id="1_eiy7p"]
 [ext_resource type="Texture2D" uid="uid://cd0imj5a2rmkn" path="res://images/Fox Sprite Sheet.png" id="1_i26rj"]
@@ -383,6 +383,14 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_31qfy"]
+shader = ExtResource("8_fimr5")
+shader_parameter/BLOOM_THRESHOLD = 0.66
+shader_parameter/BLOOM_INTENSITY = 3.08
+shader_parameter/BLUR_ITERATIONS = 3
+shader_parameter/BLUR_SIZE = -0.03
+shader_parameter/BLUR_SUBDIVISIONS = 20
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iwfq2"]
 particles_animation = true
 particles_anim_h_frames = 5
@@ -489,11 +497,11 @@ texture = ExtResource("7_cqjrg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
 texture_filter = 1
-position = Vector2(108.00003, 1000)
-scale = Vector2(5, 5)
+position = Vector2(1088, 690.00006)
+scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_eiy7p")
-animation = &"idle"
-frame_progress = 0.8288914
+animation = &"sleep"
+frame_progress = 0.79889995
 
 [node name="Dn3dAtomicDarkFall" type="Sprite2D" parent="CanvasLayer"]
 z_index = 1
@@ -522,6 +530,7 @@ texture = ExtResource("3_h7a2f")
 [node name="Dn3dAtomicDarkFall4" type="Sprite2D" parent="CanvasLayer"]
 z_index = 1
 texture_filter = 1
+material = SubResource("ShaderMaterial_31qfy")
 position = Vector2(963, 330)
 scale = Vector2(3, 3)
 skew = -0.21816616
@@ -605,6 +614,7 @@ texture = ExtResource("8_e2xy7")
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_u7cqb")
 autoplay = true
+parameters/looping = true
 
 [node name="Typewriter" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_afec1")

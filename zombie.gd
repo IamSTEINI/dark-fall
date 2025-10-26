@@ -4,12 +4,14 @@ extends CharacterBody2D
 @export var attack_range := 60
 @export var player: CharacterBody2D
 @export var cooldown := 0.8
+@export var wave = 1
 
 var is_animating_attack := false
 var can_attack := true
 var dead := false
 
 func _ready():
+	speed = wave* 2 + speed
 	$HeadArea.body_entered.connect(_on_head_hit)
 
 func _physics_process(delta: float) -> void:
@@ -22,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y += 1000 * delta
 		move_and_slide()
 		await get_tree().create_timer(3).timeout
-		$AudioStreamPlayer2D.stop()
+		$Die.stop()
 		self.queue_free()
 		return
 	
@@ -37,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		dir_x = dx / h_distance
 	
 	if not is_animating_attack:
-		if h_distance > attack_range:
+		if h_distance > attack_range - 5:
 			velocity.x = dir_x * speed
 			$AnimatedSprite2D.play("walk")
 		elif h_distance <= attack_range and can_attack:
@@ -63,6 +65,7 @@ func attack() -> void:
 	is_animating_attack = true
 	can_attack = false
 	$AnimatedSprite2D.play("attack")
+	$Attack.play()
 	
 	var half_time = $AnimatedSprite2D.sprite_frames.get_frame_count("attack") / $AnimatedSprite2D.sprite_frames.get_animation_speed("attack") / 2.0
 	await get_tree().create_timer(half_time).timeout
@@ -76,6 +79,7 @@ func attack() -> void:
 	is_animating_attack = false
 	await get_tree().create_timer(cooldown).timeout
 	can_attack = true
+	$Attack.stop()
 	
 
 func _on_head_hit(body: Node) -> void:
@@ -83,5 +87,6 @@ func _on_head_hit(body: Node) -> void:
 		return
 	if body == player and player.velocity.y > 0:
 		dead = true
-		$AudioStreamPlayer2D.play()
+		$Die.play()
+		$Run.queue_free()
 		$AnimatedSprite2D.play("die")

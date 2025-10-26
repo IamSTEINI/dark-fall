@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready() -> void:
-	$CanvasLayer/AnimatedSprite2D.play("idle")
+	$CanvasLayer/AnimatedSprite2D.play("sleep")
 
 
 func _on_play_pressed() -> void:
