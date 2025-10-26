@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var zombie_s: PackedScene = null
+@export var zombie2_s: PackedScene = null
 @export var spawn_points: Array[Node2D]
 var wave: int = 1
 var winterval := 1.5
@@ -21,8 +22,15 @@ func _check_wave() -> void:
 func new_wave():
 	wave += 1
 	$Player.wave = wave
-	for i in range(wave):
+	if wave % 2 == 0:
+		var spawns = spawn_points[randi() % spawn_points.size()]
+		var zombie_lvl2 = zombie2_s.instantiate()
+		zombie_lvl2.global_position = spawns.global_position
+		zombie_lvl2.player = $Player
+		$Zombies.add_child(zombie_lvl2)
+	for i in range(wave-1 if wave % 2 == 0 else wave):
 		var zombie = zombie_s.instantiate()
+		
 		if spawn_points.size() > 0:
 			var spawn = spawn_points[randi() % spawn_points.size()]
 			zombie.global_position = spawn.global_position

@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://btwwybmkvwyng"]
+[gd_scene load_steps=18 format=3 uid="uid://btwwybmkvwyng"]
 
 [ext_resource type="PackedScene" uid="uid://budkbgl33l736" path="res://player.tscn" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://sm01vu2mdkxp" path="res://main.gd" id="1_trn2v"]
 [ext_resource type="PackedScene" uid="uid://cpqrnewyiut7q" path="res://zombie.tscn" id="2_lgr22"]
 [ext_resource type="Texture2D" uid="uid://p8nhqtor35p8" path="res://assets/leaves.png" id="2_r0du0"]
 [ext_resource type="PackedScene" uid="uid://d3s7o0ya8pv42" path="res://ground.tscn" id="3_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://dtfmvn0h0prtf" path="res://lvl2-zombie.tscn" id="3_trn2v"]
 [ext_resource type="Texture2D" uid="uid://b8r3e8a4y6wga" path="res://assets/forest_long.png" id="4_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://c8f4em1o56b42" path="res://assets/background.png" id="5_fos0i"]
 
@@ -84,6 +85,7 @@ glow_hdr_threshold = 4.0
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_trn2v")
 zombie_s = ExtResource("2_lgr22")
+zombie2_s = ExtResource("3_trn2v")
 spawn_points = [NodePath("Spawn"), NodePath("Spawn2"), NodePath("Spawn5"), NodePath("Spawn3"), NodePath("Spawn6"), NodePath("Spawn4")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

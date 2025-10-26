@@ -501,7 +501,7 @@ position = Vector2(1088, 690.00006)
 scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_eiy7p")
 animation = &"sleep"
-frame_progress = 0.79889995
+frame_progress = 0.83034754
 
 [node name="Dn3dAtomicDarkFall" type="Sprite2D" parent="CanvasLayer"]
 z_index = 1
