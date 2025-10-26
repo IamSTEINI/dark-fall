@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var jump_velocity := -400
 @export var wave: int = 1
 var dead = false
+@export var kills = 0
 
 func die() -> void:
 	if dead:
@@ -31,6 +32,8 @@ func _physics_process(delta: float) -> void:
 	
 	if !dead:
 		$CanvasLayer/text.text = "Wave "+str(wave)
+	
+	$CanvasLayer/kills.text = str(kills)+" Kills"
 	
 	if Input.is_action_pressed("sneak"):
 		$AnimatedSprite2D.play("sneak")

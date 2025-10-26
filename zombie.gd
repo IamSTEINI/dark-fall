@@ -89,4 +89,5 @@ func _on_head_hit(body: Node) -> void:
 		dead = true
 		$Die.play()
 		$Run.queue_free()
+		player.kills =+ 1
 		$AnimatedSprite2D.play("die")

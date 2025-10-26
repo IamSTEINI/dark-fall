@@ -501,7 +501,7 @@ position = Vector2(1088, 690.00006)
 scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_eiy7p")
 animation = &"sleep"
-frame_progress = 0.83034754
+frame_progress = 0.9268433
 
 [node name="Dn3dAtomicDarkFall" type="Sprite2D" parent="CanvasLayer"]
 z_index = 1
@@ -577,7 +577,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_iwfq2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7r1g0")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_7r1g0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cqjrg")
-text = "Enter the tiwilight zone"
+text = "Enter the twilight zone"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 texture_filter = 1
